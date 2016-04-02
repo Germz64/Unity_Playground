@@ -13,6 +13,7 @@ public class ItemDatabase : MonoBehaviour {
         items.Add(new Item("Bronze Sword", 0, "A sword that is made of bronze.", 2, 1, Item.ItemType.Weapon));
         items.Add(new Item("Lesser healing Potion", 1, "This potions heal a small amount of HP.", 0, 0, Item.ItemType.Consumable));
         items.Add(new Item("Mushroom", 2, "This mushroom can be used in cooking.", 0, 0, Item.ItemType.Ingredient));
+        items.Add(new Item("Stanshroom", 3, "This doesn't smell right...", 0, 0, Item.ItemType.Consumable));
 
         //Debug
         if (DBDebug)

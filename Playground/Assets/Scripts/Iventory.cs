@@ -52,6 +52,10 @@ public class Iventory : MonoBehaviour {
         AddItem(1);
         AddItem(1);
         AddItem(1);
+        AddItem(2);
+        AddItem(2);
+        AddItem(3);
+        AddItem(3);
         //Debug
         if (inventoryDebug) {
             print("Iventory Count: " + inventory.Count + "\n\n\n\n");
@@ -150,6 +154,12 @@ public class Iventory : MonoBehaviour {
             case 1://Potion of Lesser Healing
                 {
                     ps.restoreHealth(15);
+                    print("Used consumable " + item.itemName);
+                    break;
+                }//case1
+            case 3://Potion of Lesser Healing
+                {
+                    ps.takeDamage(100);
                     print("Used consumable " + item.itemName);
                     break;
                 }//case1
