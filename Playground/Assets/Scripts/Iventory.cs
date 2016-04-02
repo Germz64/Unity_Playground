@@ -56,6 +56,7 @@ public class Iventory : MonoBehaviour {
         AddItem(2);
         AddItem(3);
         AddItem(3);
+        AddItem(4);
         //Debug
         if (inventoryDebug) {
             print("Iventory Count: " + inventory.Count + "\n\n\n\n");
@@ -159,15 +160,26 @@ public class Iventory : MonoBehaviour {
                 }//case1
             case 3://Potion of Lesser Healing
                 {
-                    ps.takeDamage(100);
-                    print("Used consumable " + item.itemName);
+                    ps.takeDamage(150);
+                    break;
+                }//case1
+            case 4://Potion of Lesser Healing
+                {
+                    if (InventoryContains(3))
+                    {
+                        ps.restoreHealth(100);
+                        RemoveItem(3);
+                    }
                     break;
                 }//case1
         }//switch
+
         if (deleteItem)
         {
             inventory[slot] = new Item();
         }//if
+
+        print("Used consumable " + item.itemName);
     }//UseConsumable
 
     void OnGUI()
@@ -267,7 +279,15 @@ public class Iventory : MonoBehaviour {
                         {
                             if (item.itemType == Item.ItemType.Consumable)
                             {
-                                UseConsumable(item, i, true);
+                                switch (item.itemID)
+                                {
+                                    case 4:
+                                        UseConsumable(item, i, false);
+                                        break;
+                                    default:
+                                        UseConsumable(item, i, true);
+                                        break;
+                                }//switch
                             }//if
                         }//if
                     }//if
