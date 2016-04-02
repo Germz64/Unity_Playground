@@ -30,7 +30,7 @@ public class InteractionManager : MonoBehaviour {
         if (Input.GetAxis("Horizontal") > 0)
         {
             //Create a vector2 facing right 
-            Vector2 right = transform.TransformDirection(Vector2.right) * 100;
+            Vector2 right = transform.TransformDirection(Vector2.right) * 50;
             currentDirection = right;                                       //Will require this for Idle Ray Casting
             Debug.DrawRay(transform.position, right, Color.red);            //Debug visual 
             if (Physics.Raycast(transform.position, (right), out hit))      //Check for hit
@@ -43,7 +43,7 @@ public class InteractionManager : MonoBehaviour {
         //Left
         if (Input.GetAxis("Horizontal") < 0)
         {
-            Vector2 left = transform.TransformDirection(Vector2.left) * 100;
+            Vector2 left = transform.TransformDirection(Vector2.left) * 50;
             currentDirection = left;
             Debug.DrawRay(transform.position, left, Color.red);
             if (Physics.Raycast(transform.position, (left), out hit))
@@ -56,7 +56,7 @@ public class InteractionManager : MonoBehaviour {
         //Up
         if (Input.GetAxis("Vertical") > 0)
         {
-            Vector2 up = transform.TransformDirection(Vector2.up) * 100;
+            Vector2 up = transform.TransformDirection(Vector2.up) * 50;
             currentDirection = up;
             Debug.DrawRay(transform.position, up, Color.red);
 
@@ -70,7 +70,7 @@ public class InteractionManager : MonoBehaviour {
         //Down
         if (Input.GetAxis("Vertical") < 0)
         {
-            Vector2 down = transform.TransformDirection(Vector2.down) * 100;
+            Vector2 down = transform.TransformDirection(Vector2.down) * 50;
             currentDirection = down;
             Debug.DrawRay(transform.position, down, Color.red);
 
