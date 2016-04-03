@@ -12,6 +12,7 @@ public class InteractionManager : MonoBehaviour {
     void Start () { 
         player = GameObject.FindGameObjectWithTag("Player");
         currentDirection = new Vector2();
+        hit = new RaycastHit();
     }//start
 
     // Update is called once per frame
@@ -19,6 +20,11 @@ public class InteractionManager : MonoBehaviour {
     {
         performRayCastOnMovement();
         performRayCastOnIdle();
+        if(hit.collider.gameObject.name != "")
+        {
+            checkRayCast();
+            print("RayCast Checked");
+        }
     }//update
 
     private void performRayCastOnMovement()
@@ -98,4 +104,18 @@ public class InteractionManager : MonoBehaviour {
             }//if
         }//if
     }//performRayCastOnIdle
+
+    public void checkRayCast()
+    {
+        if(hit.collider.gameObject.name != "")
+        {
+            if(theDistance < 10)
+            {
+                if (Input.GetKey(KeyCode.E))
+                {
+                    print("YOU DID IT BUB!");
+                }
+            }
+        }
+    }
 }//InteractionManager
