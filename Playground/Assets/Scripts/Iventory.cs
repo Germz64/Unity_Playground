@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 
 public class Iventory : MonoBehaviour {
-
     //Debug
     public bool inventoryDebug;
 
@@ -70,7 +69,6 @@ public class Iventory : MonoBehaviour {
 	
     void Update()
     {
-        //Check for inventory Key (to be changed with Input Manager
         if (Input.GetButtonDown("Inventory")) { 
             showInventory = !showInventory;
         }//if

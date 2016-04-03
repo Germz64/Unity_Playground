@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class ItemDatabase : MonoBehaviour {
     public List<Item> items = new List<Item>();
-
+    public List<Container> containers = new List<Container>();
     public bool DBDebug;
 
 	void Start()
