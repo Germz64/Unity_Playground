@@ -64,6 +64,7 @@ public class InteractionManager : MonoBehaviour {
             {
                 theDistance = hit.distance;
                 print(theDistance + ": " + hit.collider.gameObject.name);
+
             }//if
         }//if
 
