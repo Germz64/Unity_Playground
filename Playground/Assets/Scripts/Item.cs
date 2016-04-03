@@ -11,7 +11,6 @@ public class Item {
     public int itemID;
     public string ItemDesc;
     public Texture2D itemIcon;
-
     public ItemType itemType;
 
     //stats
@@ -24,7 +23,8 @@ public class Item {
         Weapon,
         Consumable,
         Quest,
-        Ingredient
+        Ingredient,
+        Armor
     }//enum
 
     public Item(string name, int ID, string description,int power, int speed, ItemType type)

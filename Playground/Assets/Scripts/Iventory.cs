@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using Assets.Scripts;
 
 public class Iventory : MonoBehaviour {
 
@@ -13,6 +13,8 @@ public class Iventory : MonoBehaviour {
 
     //The Player's Stats
     public PlayerStats ps;
+
+    LootGenerator lg;
 
     //Containers
     public List<Item> inventory = new List<Item>();
@@ -36,6 +38,7 @@ public class Iventory : MonoBehaviour {
         //Get the DB of Items
         database = GameObject.FindGameObjectWithTag("Item Database").GetComponent<ItemDatabase>();
         ps = GameObject.FindGameObjectWithTag("Player Stats").GetComponent<PlayerStats>();
+        lg = GameObject.FindGameObjectWithTag("Loot Generator").GetComponent<LootGenerator>();
 
         //Create slots for inventory GUI
         for (int i = 0; i < (slotX * slotY); i++)
@@ -213,6 +216,10 @@ public class Iventory : MonoBehaviour {
             if (GUI.Button(new Rect(40, 300, 100, 40), "Load"))
             {
                 LoadInventory();
+            }
+            if (GUI.Button(new Rect(30, 350, 100, 60), "Generate loot"))
+            {
+                lg.generateLoot();
             }//if
         }//if
 
@@ -236,8 +243,8 @@ public class Iventory : MonoBehaviour {
         GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
         //centeredStyle.alignment = TextAnchor.UpperCenter;
 
-        int inventoryWidth = 800;
-        int inventoryHeight = 800;
+        int inventoryWidth = 400;
+        int inventoryHeight = 400;
 
         Rect backgroundRect = new Rect(Screen.width / 2 - (inventoryWidth/2), Screen.height / 2 - (inventoryHeight/2), inventoryWidth, inventoryHeight);
         GUI.Box(backgroundRect, "", skin.GetStyle("Box"));
@@ -247,7 +254,7 @@ public class Iventory : MonoBehaviour {
             for(int x = 0; x < slotX; x++)
             {
                 //Create rect, apply our skin, equalize slots with inventory, draw icon if item exists
-                Rect test = new Rect(backgroundRect.center.x + 300 - x * 60, backgroundRect.center.y + 300 - y * 60, 50, 50);
+                Rect test = new Rect(backgroundRect.center.x + inventoryWidth/2 - x * 60, backgroundRect.center.y + inventoryWidth/2 - y * 60, 50, 50);
                 Rect slotRect = new Rect(x * 60, y * 60, 50, 50);
                 GUI.Box(test, "",skin.GetStyle("Slot"));
                 slots[i] = inventory[i];
